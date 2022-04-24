@@ -45,9 +45,9 @@ public class Graph {
             frontier = next;
             i++;
         }
-        System.out.println("level of each index from "+ s+" vertex is :");
+        System.out.println("level of each vertex from "+ s+"th vertex is :");
         System.out.println(level);
-        System.out.println("parent of each index is : ");
+        System.out.println("parent of each vertex is : ");
         System.out.println(parent);
     }
 
