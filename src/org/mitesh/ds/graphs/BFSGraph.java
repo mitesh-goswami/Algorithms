@@ -8,11 +8,11 @@ import java.util.*;
  until i have reached my source vertex.
  */
 
-public class Graph {
+public class BFSGraph {
     private int vertices;
     private List<Integer> adj[] ;
 
-    public Graph(int v) {
+    public BFSGraph(int v) {
         this.vertices = v;
         adj = new LinkedList[v];
         for(int i=0 ; i<v; i++) {
@@ -55,7 +55,7 @@ public class Graph {
 
 
     public static void main(String[] args) {
-        Graph g = new Graph(4);
+        BFSGraph g = new BFSGraph(4);
 
         g.addEdge(0, 1);
         g.addEdge(0, 2);
