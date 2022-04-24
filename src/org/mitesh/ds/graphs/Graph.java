@@ -2,6 +2,12 @@ package org.mitesh.ds.graphs;
 
 import java.util.*;
 
+/*
+ i have added parent field in bfs bcoz if i have to do a single source shortest path
+ algo from a particular vertex then i just have to recursively call the parent of that vertex
+ until i have reached my source vertex.
+ */
+
 public class Graph {
     private int vertices;
     private List<Integer> adj[] ;
@@ -39,7 +45,9 @@ public class Graph {
             frontier = next;
             i++;
         }
+        System.out.println("level of each index from "+ s+" vertex is :");
         System.out.println(level);
+        System.out.println("parent of each index is : ");
         System.out.println(parent);
     }
 
@@ -55,9 +63,9 @@ public class Graph {
         g.addEdge(2, 0);
         g.addEdge(2, 3);
         g.addEdge(3, 3);
+        int s = 0;
+        System.out.println("Following is BFS Traversal " + "(starting from "+ s +"th vertex)");
 
-        System.out.println("Following is Breadth First Traversal " + "(starting from vertex 2)");
-
-        g.BFS(0);
+        g.BFS(s);
     }
 }
