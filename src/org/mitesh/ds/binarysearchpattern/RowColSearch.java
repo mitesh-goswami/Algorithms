@@ -28,7 +28,6 @@ public class RowColSearch {
             else{
                 row++;
             }
-
         }
         return new int[]{-1, -1};
     }
