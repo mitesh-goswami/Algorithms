@@ -18,22 +18,23 @@ public class SearchInRotatedArrayLeetCode {
         //as the element in 2nd half will always be greater than 1st element
         if (arr[0] <= target) {
             //for 1st half
-            System.out.println(binarySearch(arr, target, 0, pivot-1));
+            System.out.println(binarySearch(arr, target, 0, pivot - 1));
         } else {
             System.out.println("inside 2nd half");
-            System.out.println(binarySearch(arr, target, pivot+1, arr.length -1));
+            System.out.println(binarySearch(arr, target, pivot + 1, arr.length - 1));
         }
     }
-//this is only for arrayy with no dupllicate value
+
+    //this is only for arrayy with no dupllicate value
     static int findPivot(int arr[]) {
         int start = 0;
         int end = arr.length - 1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (mid<end &&arr[mid] > arr[mid + 1]) {
+            if (mid < end && arr[mid] > arr[mid + 1]) {
                 return mid;
             }
-            if (mid>start && arr[mid] < arr[mid - 1]) {
+            if (mid > start && arr[mid] < arr[mid - 1]) {
                 return mid - 1;
             } else if (arr[start] < arr[mid]) {
                 start = mid + 1;
@@ -43,30 +44,32 @@ public class SearchInRotatedArrayLeetCode {
         }
         return -1;
     }
-    static int findPivotwithDuplictaes(int arr[]){
+
+    static int findPivotwithDuplictaes(int arr[]) {
         int start = 0;
         int end = arr.length - 1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (mid<end &&arr[mid] > arr[mid + 1]) {
+            if (mid < end && arr[mid] > arr[mid + 1]) {
                 return mid;
             }
-            if (mid>start && arr[mid] < arr[mid - 1]) {
+            if (mid > start && arr[mid] < arr[mid - 1]) {
                 return mid - 1;
-            }
-            else if(arr[start]==arr[mid] && arr[mid]==arr[end]){
-                if(arr[start]> arr[start+1]){
+            } else if (arr[start] == arr[mid] && arr[mid] == arr[end]) {
+                if (arr[start] > arr[start + 1]) {
                     return start;
-                } else if (arr[end -1]> arr[end]) {
-                    return end -1;
                 }
+                start++;
+                if (arr[end - 1] > arr[end]) {
+                    return end - 1;
+                }
+                end--;
             }
             //sorted left half
-            else if(arr[start]<arr[mid]|| arr[mid]>arr[end]){
-                start = mid +1;
-            }
-            else{
-                end = mid -1;
+            else if (arr[start] < arr[mid] || arr[mid] > arr[end]) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
             }
         }
         return -1;
