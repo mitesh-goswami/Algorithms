@@ -66,7 +66,7 @@ public class SearchInRotatedArrayLeetCode {
                 end--;
             }
             //sorted left half
-            else if (arr[start] < arr[mid] || arr[mid] > arr[end]) {
+            else if (arr[start] <= arr[mid] || arr[mid] > arr[end]) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
